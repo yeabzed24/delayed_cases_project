@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+// Prevent the page from being cached
+header('Cache-Control: no-cache, no-store, must-revalidate');
+header('Pragma: no-cache');
+header('Expires: 0');
+
 // Check if the user is already logged in
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     if ($_SESSION['role'] == 'manager') {

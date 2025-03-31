@@ -1,5 +1,12 @@
 <?php
-session_start();  // Start the session to use session variables
+session_start();  // Start the session
+
+// Check if the user is logged in
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
+    // If not logged in, redirect to the login page
+    header("Location: login.php");
+    exit();
+}
 
 // Check if the user is logged in and is a manager
 if (!isset($_SESSION['loggedin']) ||
